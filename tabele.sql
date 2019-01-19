@@ -1,6 +1,3 @@
--- plik wsadowy
-DROP DATABASE kino_filar;
-
 DROP TABLE dane_osobowe;
 DROP TABLE rodzaj_biletu;
 DROP TABLE seanse;
@@ -11,8 +8,6 @@ drop table sprzedawcy;
 drop table bilety;
 drop table miejsca;
 drop table rezyserzy;
-
-CREATE DATABASE kino_filar;
 
 CREATE TABLE dane_osobowe(
    id_dane_osobowe VARCHAR(10) NOT NULL, 
@@ -26,14 +21,14 @@ ALTER TABLE dane_osobowe ADD PRIMARY KEY(id_dane_osobowe);
 CREATE TABLE rodzaj_biletu(
    id_biletu VARCHAR(10) NOT NULL,
    rodzaj VARCHAR(10) NOT NULL,
-   cena NUMERIC(4) NOT NULL,
+   cena NUMERIC(4) NOT NULL
 );
 ALTER TABLE rodzaj_biletu ADD PRIMARY KEY(id_biletu);
 
 CREATE TABLE seanse(
    id_seansu VARCHAR(10) NOT NULL,
    id_filmu VARCHAR(10) NOT NULL,
-   data_godzina DATETIME(16) NOT NULL,
+   data_godzina DATE NOT NULL
 );
 ALTER TABLE seanse ADD PRIMARY KEY(id_seansu);
 
@@ -42,30 +37,29 @@ CREATE TABLE filmy(
    id_rezyser VARCHAR(10) NOT NULL,
    id_gatunku VARCHAR(10) NOT NULL,
    tytul VARCHAR(20) NOT NULL,
-   data_premiery DATE(10),
-   opis VARCHAR(250),
+   data_premiery DATE,
+   opis VARCHAR(250)
 );
 ALTER TABLE filmy ADD PRIMARY KEY(id_filmu);
 
 CREATE TABLE gatunki(
    id_gatunku VARCHAR(10) NOT NULL,
-   nazwa VARCHAR(15),
+   nazwa VARCHAR(15)
 );
 ALTER TABLE gatunki ADD PRIMARY KEY(id_gatunku);
 
-create table klienci
-(
-id_klient VARCHAR2(10) NOT NULL, 
-id_dane_osobowe VARCHAR2(10) NOT NULL
+create table klienci(
+   id_klient VARCHAR(10) NOT NULL, 
+   id_dane_osobowe VARCHAR(10) NOT NULL
 );
 alter table klienci add primary key(id_klient);
 
 create table sprzedawcy
 (
-id_sprzedawca VARCHAR2(10) NOT NULL, 
-id_dane_osobowe VARCHAR2(10) NOT NULL, 
-data_zatrudnienia DATE, 
-data_zwolnienia DATE 
+   id_sprzedawca VARCHAR2(10) NOT NULL, 
+   id_dane_osobowe VARCHAR2(10) NOT NULL, 
+   data_zatrudnienia DATE, 
+   data_zwolnienia DATE
 );
 alter table sprzedawcy add primary key(id_sprzedawca);
 
@@ -86,7 +80,7 @@ id_sprzedawca VARCHAR2(10) NOT NULL,
 id_seans VARCHAR2(10) NOT NULL,
 id_rodzaj_biletu VARCHAR2(10) NOT NULL,
 data_kupna DATETIME(16),
-termin_waznosci DATETIME(16),
+termin_waznosci DATETIME(16)
 );
 alter table bilety add primary key(id_biletu);
 
@@ -94,7 +88,7 @@ create table rezyserzy
 (
 id_rezyser VARCHAR2(10) NOT NULL,
 imie VARCHAR2(20) NOT NULL,
-nazwisko VARCHAR2(20) NOT NULL,
+nazwisko VARCHAR2(20) NOT NULL
 );
 alter table bilety add primary key(id_rezyser);
 
