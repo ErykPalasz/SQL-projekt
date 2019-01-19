@@ -55,15 +55,15 @@ ALTER TABLE gatunki ADD PRIMARY KEY(id_gatunku);
 
 create table klienci
 (
-id_klient VARCHAR2(10) NOT NULL, 
-id_dane_osobowe VARCHAR2(10) NOT NULL
+id_klient VARCHAR(10) NOT NULL, 
+id_dane_osobowe VARCHAR(10) NOT NULL
 );
 alter table klienci add primary key(id_klient);
 
 create table sprzedawcy
 (
-id_sprzedawca VARCHAR2(10) NOT NULL, 
-id_dane_osobowe VARCHAR2(10) NOT NULL, 
+id_sprzedawca VARCHAR(10) NOT NULL, 
+id_dane_osobowe VARCHAR(10) NOT NULL, 
 data_zatrudnienia DATE, 
 data_zwolnienia DATE 
 );
@@ -71,7 +71,7 @@ alter table sprzedawcy add primary key(id_sprzedawca);
 
 create table miejsca
 (
-id_miejsca VARCHAR2(10) NOT NULL,
+id_miejsca VARCHAR(10) NOT NULL,
 rzad_litera CHAR(2) NOT NULL, 
 fotel_cyfra INTEGER(2) NOT NULL
 );
@@ -79,12 +79,12 @@ alter table miejsca add primary key(id_miejsca);
 
 create table bilety
 (
-id_biletu VARCHAR2(10) NOT NULL,
-id_miejsca VARCHAR2(10) NOT NULL,
-id_klient VARCHAR2(10) NOT NULL,
-id_sprzedawca VARCHAR2(10) NOT NULL,
-id_seans VARCHAR2(10) NOT NULL,
-id_rodzaj_biletu VARCHAR2(10) NOT NULL,
+id_biletu VARCHAR(10) NOT NULL,
+id_miejsca VARCHAR(10) NOT NULL,
+id_klient VARCHAR(10) NOT NULL,
+id_sprzedawca VARCHAR(10) NOT NULL,
+id_seans VARCHAR(10) NOT NULL,
+id_rodzaj_biletu VARCHAR(10) NOT NULL,
 data_kupna DATETIME(16),
 termin_waznosci DATETIME(16),
 );
@@ -92,9 +92,9 @@ alter table bilety add primary key(id_biletu);
 
 create table rezyserzy
 (
-id_rezyser VARCHAR2(10) NOT NULL,
-imie VARCHAR2(20) NOT NULL,
-nazwisko VARCHAR2(20) NOT NULL,
+id_rezyser VARCHAR(10) NOT NULL,
+imie VARCHAR(20) NOT NULL,
+nazwisko VARCHAR(20) NOT NULL,
 );
 alter table bilety add primary key(id_rezyser);
 
