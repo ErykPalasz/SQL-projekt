@@ -65,7 +65,7 @@ alter table sprzedawcy add primary key(id_sprzedawca);
 
 create table miejsca
 (
-id_miejsca VARCHAR2(10) NOT NULL,
+id_miejsca VARCHAR(10) NOT NULL,
 rzad_litera CHAR(2) NOT NULL, 
 fotel_cyfra INTEGER(2) NOT NULL
 );
@@ -73,12 +73,12 @@ alter table miejsca add primary key(id_miejsca);
 
 create table bilety
 (
-id_biletu VARCHAR2(10) NOT NULL,
-id_miejsca VARCHAR2(10) NOT NULL,
-id_klient VARCHAR2(10) NOT NULL,
-id_sprzedawca VARCHAR2(10) NOT NULL,
-id_seans VARCHAR2(10) NOT NULL,
-id_rodzaj_biletu VARCHAR2(10) NOT NULL,
+id_biletu VARCHAR(10) NOT NULL,
+id_miejsca VARCHAR(10) NOT NULL,
+id_klient VARCHAR(10) NOT NULL,
+id_sprzedawca VARCHAR(10) NOT NULL,
+id_seans VARCHAR(10) NOT NULL,
+id_rodzaj_biletu VARCHAR(10) NOT NULL,
 data_kupna DATETIME(16),
 termin_waznosci DATETIME(16)
 );
