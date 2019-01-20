@@ -55,9 +55,10 @@ ALTER TABLE gatunki ADD PRIMARY KEY(id_gatunku);
 
 create table klienci(
    id_klient VARCHAR(10) NOT NULL, 
-   id_dane_osobowe VARCHAR(10) NOT NULL
+   id_dane_osobowe VARCHAR(10)
 );
 alter table klienci add primary key(id_klient);
+alter table klienci add check(select id_dane_osobowe from dane_osobowe = id_dane_osobowe);
 
 create table sprzedawcy(
    id_sprzedawca VARCHAR2(10) NOT NULL, 
@@ -152,9 +153,14 @@ increment by 1 start with 70 cache 20 noorder nocycle;
 
 --    id triggery
 CREATE or REPLACE trigger dane_osob_trigg_insert
-before insert on dane_osobowe FOR EACH ROW DECLARE
-NUMEREK number;
+before insert on dane_osobowe FOR EACH ROW DECLARE NUMEREK number;
 begin
    select id_dane_osobowe_seq.nextval into NUMEREK from dual;
    :NEW.id_dane_osobowe := concat(concat(substr(:NEW.imie,1,1),substr(:NEW.nazwisko,1,1)),NUMEREK);
+end;
+
+CREATE or REPLACE trigger klienci_trigg_insert
+before insert on dane_osobowe FOR EACH ROW
+begin
+   :NEW.id_klient := concat(:NEW.id_dane_osobowe, 'KL');
 end;
