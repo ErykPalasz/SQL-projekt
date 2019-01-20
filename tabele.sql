@@ -1,5 +1,5 @@
+-- usuwanie tablic
 DROP TABLE dane_osobowe CASCADE CONSTRAINTS PURGE;
-DROP TABLE rodzaj_biletu CASCADE CONSTRAINTS PURGE;
 DROP TABLE seanse CASCADE CONSTRAINTS PURGE;
 DROP TABLE filmy CASCADE CONSTRAINTS PURGE;
 DROP TABLE gatunki CASCADE CONSTRAINTS PURGE;
@@ -9,6 +9,7 @@ drop table bilety CASCADE CONSTRAINTS PURGE;
 drop table miejsca CASCADE CONSTRAINTS PURGE;
 drop table rezyserzy CASCADE CONSTRAINTS PURGE;
 
+-- tabele
 CREATE TABLE dane_osobowe(
    id_dane_osobowe VARCHAR(10) NOT NULL, 
    imie VARCHAR(10) NOT NULL, 
@@ -17,13 +18,6 @@ CREATE TABLE dane_osobowe(
    telefon NUMERIC(9)
 );
 ALTER TABLE dane_osobowe ADD PRIMARY KEY(id_dane_osobowe);
-
-CREATE TABLE rodzaj_biletu(
-   id_rodzaj_biletu VARCHAR(10) NOT NULL,
-   rodzaj VARCHAR(10) check(rodzaj in('normalny', 'ulgowy', 'emeryt')) NOT NULL,
-   cena NUMERIC(4) check(cena in(8, 6, 4)) NOT NULL 
-);
-ALTER TABLE rodzaj_biletu ADD PRIMARY KEY(id_rodzaj_biletu);
 
 CREATE TABLE seanse(
    id_seansu VARCHAR(10) NOT NULL,
@@ -76,7 +70,7 @@ create table bilety  (
    id_klient VARCHAR(10) NOT NULL,
    id_sprzedawca VARCHAR(10) NOT NULL,
    id_seansu VARCHAR(10) NOT NULL,
-   id_rodzaj_biletu VARCHAR(10) NOT NULL,
+   rodzaj_biletu VARCHAR(15) check(rodzaj in('normalny 18zl', 'ulgowy 12zl', 'emeryt 8zl', 'dziecko 4zl'))
    data_kupna DATE,
    termin_waznosci DATE
 );
@@ -89,14 +83,13 @@ create table rezyserzy(
 );
 alter table rezyserzy add primary key(id_rezyser);
 
+-- relacje
 alter table klienci add foreign key(id_dane_osobowe) REFERENCES dane_osobowe(id_dane_osobowe);
 alter table sprzedawcy add foreign key(id_dane_osobowe) REFERENCES dane_osobowe(id_dane_osobowe);
 alter table bilety add foreign key(id_miejsca) REFERENCES miejsca(id_miejsca);
 alter table bilety add foreign key(id_klient) REFERENCES klienci(id_klient);
 alter table bilety add foreign key(id_sprzedawca) REFERENCES sprzedawcy(id_sprzedawca);
 alter table bilety add foreign key(id_seansu) REFERENCES seanse(id_seansu);
-alter table bilety add foreign key(id_rodzaj_biletu) REFERENCES rodzaj_biletu(id_rodzaj_biletu);
-
 alter table seanse add foreign key(id_filmu) REFERENCES filmy(id_filmu);
 alter table filmy add foreign key(id_rezyser) REFERENCES rezyserzy(id_rezyser);
 alter table filmy add foreign key(id_gatunku) REFERENCES gatunki(id_gatunku);
