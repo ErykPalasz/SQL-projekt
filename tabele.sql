@@ -128,10 +128,11 @@ CREATE sequence id_gatunku_seq
 minvalue 1 maxvalue 999999999999999999999999999
 increment by 1 start with 70 cache 20 noorder nocycle;
 
+--! niepotrzebne
 CREATE sequence id_klient_seq
 minvalue 1 maxvalue 999999999999999999999999999
 increment by 1 start with 70 cache 20 noorder nocycle;
-
+--! niepotrzebne
 CREATE sequence id_sprzedawca_seq
 minvalue 1 maxvalue 999999999999999999999999999
 increment by 1 start with 70 cache 20 noorder nocycle;
@@ -152,14 +153,86 @@ increment by 1 start with 70 cache 20 noorder nocycle;
 
 --    id triggery
 CREATE or REPLACE trigger dane_osob_trigg_insert
-before insert on dane_osobowe FOR EACH ROW DECLARE NUMEREK number;
+before insert on dane_osobowe 
+FOR EACH ROW 
+DECLARE NUMEREK number;
 begin
-   select id_dane_osobowe_seq.nextval into NUMEREK from dual;
-   :NEW.id_dane_osobowe := concat(concat(substr(:NEW.imie,1,1),substr(:NEW.nazwisko,1,1)),NUMEREK);
+select id_dane_osobowe_seq.nextval into NUMEREK from dual;
+:NEW.id_dane_osobowe := concat(concat(substr(:NEW.imie,1,1),substr(:NEW.nazwisko,1,1)),NUMEREK);
 end;
+/
 
 CREATE or REPLACE trigger klienci_trigg_insert
-before insert on dane_osobowe FOR EACH ROW
+before insert on klienci 
+FOR EACH ROW
 begin
-   :NEW.id_klient := concat(:NEW.id_dane_osobowe, 'KL');
+:NEW.id_klient := concat(:NEW.id_dane_osobowe, 'KL');
+end;
+/
+
+CREATE or REPLACE trigger sprzedawcy_trigg_insert
+before insert on sprzedawcy 
+FOR EACH ROW
+begin
+:NEW.id_sprzedawca := concat(:NEW.id_dane_osobowe, 'SP');
+end;
+/
+
+CREATE or REPLACE trigger rezyserzy_trigg_insert
+before insert on rezyserzy 
+FOR EACH ROW 
+DECLARE NUMEREK number;
+begin
+select id_rezyser_seq.nextval into NUMEREK from dual;
+:NEW.id_rezyser := concat(concat(concat(substr(:NEW.imie,1,1),substr(:NEW.nazwisko,1,1)),NUMEREK),'REZ');
+end;
+/
+
+CREATE or REPLACE trigger gatunki_trigg_insert
+before insert on gatunki 
+FOR EACH ROW 
+DECLARE NUMEREK number;
+begin
+select id_gatunku_seq.nextval into NUMEREK from dual;
+:NEW.id_gatunku := concat(substr(:NEW.nazwa,1,1),NUMEREK);
+end;
+/
+
+CREATE or REPLACE trigger filmy_trigg_insert
+before insert on filmy 
+FOR EACH ROW 
+DECLARE NUMEREK number;
+begin 
+select id_filmu_seq.nextval into NUMEREK from dual;
+:NEW.id_filmu := concat(concat(concat(substr(:NEW.tytul,1,6),:NEW.id_gatunku),:NEW.id_rezyser), NUMEREK);
+end;
+/
+
+CREATE or REPLACE trigger miejsca_trigg_insert
+before insert on miejsca 
+FOR EACH ROW 
+DECLARE NUMEREK number;
+begin
+select id_miejsca_seq.nextval into NUMEREK from dual;
+:NEW.id_miejsca := concat(concat(:NEW.rzad_litera, :NEW.fotel_cyfra), NUMEREK);
+end;
+/
+
+CREATE or REPLACE trigger seanse_trigg_insert
+before insert on seanse 
+FOR EACH ROW 
+DECLARE NUMEREK number;
+begin
+select id_seansu_seq.nextval into NUMEREK from dual;
+:NEW.id_seansu := concat(concat(:NEW.id_filmu, NUMEREK), :NEW.data_godzina);
+end;
+/
+
+CREATE or REPLACE trigger bilety_trigg_insert
+before insert on bilety 
+FOR EACH ROW 
+DECLARE NUMEREK number;
+begin
+select id_biletu_seq.nextval into NUMEREK from dual;
+:NEW.id_biletu := concat(concat(concat(substr(:NEW.rodzaj_biletu,1,2), :NEW.id_miejsca), NUMEREK), :NEW.id_seansu);
 end;
