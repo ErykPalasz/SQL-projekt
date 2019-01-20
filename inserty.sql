@@ -11,6 +11,9 @@ insert into gatunki (nazwa) values ('Crime');
 insert into gatunki (nazwa) values ('Comedy');
 insert into gatunki (nazwa) values ('Romance');
 insert into gatunki (nazwa) values ('Horror');
+insert into gatunki (nazwa) values ('Thriler');
+insert into gatunki (nazwa) values ('Musical');
+
 
 -- dane osobowe
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Rolf', 'Trudgeon', 'rtrudgeon0@reference.com', '865 860 152');
@@ -45,3 +48,12 @@ insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Tonnie', 'Sap
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Arabele', 'Crowth', 'acrowtht@dropbox.com', '500 948 072');
 
 --
+
+id_gatunku
+D70,C71,C72,R73,H74,T75,M76
+
+id_dane_osobowe
+RT70,BQ71,MM72,HE73,NA74,MD75,EM76,SL77,EC78,SB79,RC80,AL81,GB82,PR83,CC84,MW85,FA86,DB87,YS88,AM89,SS90,DP91,KG92,JG93,HM94,RM95,BM96,FG97,TS98,AC99
+
+id_rezyser
+BA70REZ,LM71REZ,TA72REZ,RP73REZ,EC74REZ
