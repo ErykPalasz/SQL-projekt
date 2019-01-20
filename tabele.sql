@@ -11,7 +11,7 @@ drop table rezyserzy CASCADE CONSTRAINTS PURGE;
 
 drop index indeks_bile_miej_sean_wazn;
 drop index indeks_imie_nazw;
-drop index indeks_sean_film_datagodz
+drop index indeks_sean_film_datagodz;
 drop index indeks_miej_rzad_fote;
 
 drop sequence id_filmu_seq;
