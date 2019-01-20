@@ -1,4 +1,4 @@
--- usuwanie
+--    usuwanie
 DROP TABLE dane_osobowe CASCADE CONSTRAINTS PURGE;
 DROP TABLE seanse CASCADE CONSTRAINTS PURGE;
 DROP TABLE filmy CASCADE CONSTRAINTS PURGE;
@@ -20,7 +20,7 @@ drop sequence id_sprzedawca_seq;
 drop sequence id_dane_osobowe_seq;
 
 
--- tabele
+--    tabele
 CREATE TABLE dane_osobowe(
    id_dane_osobowe VARCHAR(10) NOT NULL, 
    imie VARCHAR(10) NOT NULL, 
@@ -81,9 +81,9 @@ create table bilety  (
    id_klient VARCHAR(10) NOT NULL,
    id_sprzedawca VARCHAR(10) NOT NULL,
    id_seansu VARCHAR(10) NOT NULL,
-   rodzaj_biletu VARCHAR(15) check(rodzaj_biletu in('normalny 18zl', 'ulgowy 12zl', 'emeryt 8zl', 'dziecko 4zl')),
-   data_kupna DATE,
-   termin_waznosci DATE
+   rodzaj_biletu VARCHAR(15) check(rodzaj_biletu in('normalny 18zl', 'ulgowy 12zl', 'emeryt 8zl', 'dziecko 4zl', NULL)),
+   data_kupna DATE NOT NULL,
+   termin_waznosci DATE NOT NULL
 );
 alter table bilety add primary key(id_biletu);
 
@@ -94,7 +94,7 @@ create table rezyserzy(
 );
 alter table rezyserzy add primary key(id_rezyser);
 
--- relacje
+--    relacje
 alter table klienci add foreign key(id_dane_osobowe) REFERENCES dane_osobowe(id_dane_osobowe);
 alter table sprzedawcy add foreign key(id_dane_osobowe) REFERENCES dane_osobowe(id_dane_osobowe);
 alter table bilety add foreign key(id_miejsca) REFERENCES miejsca(id_miejsca);
@@ -105,13 +105,13 @@ alter table seanse add foreign key(id_filmu) REFERENCES filmy(id_filmu);
 alter table filmy add foreign key(id_rezyser) REFERENCES rezyserzy(id_rezyser);
 alter table filmy add foreign key(id_gatunku) REFERENCES gatunki(id_gatunku);
 
--- indeksy
+--    indeksy
 CREATE index indeks_sean_film_datagodz on seanse(id_filmu, data_godzina);
 CREATE index indeks_imie_nazw on dane_osobowe(imie, nazwisko);
 CREATE index indeks_bile_miej_sean_wazn on bilety(id_miejsca, id_seansu, termin_waznosci);
 CREATE index indeks_miej_rzad_fote on miejsca(rzad_litera, fotel_cyfra);
 
--- sekwencje
+--    sekwencje
 CREATE sequence id_dane_osobowe_seq
 minvalue 1 maxvalue 999999999999999999999999999
 increment by 1 start with 70 cache 20 noorder nocycle;
@@ -128,11 +128,10 @@ CREATE sequence id_gatunku_seq
 minvalue 1 maxvalue 999999999999999999999999999
 increment by 1 start with 70 cache 20 noorder nocycle;
 
---! niepotrzebne
 CREATE sequence id_klient_seq
 minvalue 1 maxvalue 999999999999999999999999999
 increment by 1 start with 70 cache 20 noorder nocycle;
---! niepotrzebne
+
 CREATE sequence id_sprzedawca_seq
 minvalue 1 maxvalue 999999999999999999999999999
 increment by 1 start with 70 cache 20 noorder nocycle;
@@ -149,16 +148,14 @@ CREATE sequence id_rezyser_seq
 minvalue 1 maxvalue 999999999999999999999999999
 increment by 1 start with 70 cache 20 noorder nocycle;
 
--- triggery
-
---    id triggery
+--    triggery generujące identyfikatory
 CREATE or REPLACE trigger dane_osob_trigg_insert
 before insert on dane_osobowe 
 FOR EACH ROW 
 DECLARE NUMEREK number;
 begin
-select id_dane_osobowe_seq.nextval into NUMEREK from dual;
-:NEW.id_dane_osobowe := concat(concat(substr(:NEW.imie,1,1),substr(:NEW.nazwisko,1,1)),NUMEREK);
+   select id_dane_osobowe_seq.nextval into NUMEREK from dual;
+   :NEW.id_dane_osobowe := concat(concat(substr(:NEW.imie,1,1),substr(:NEW.nazwisko,1,1)),NUMEREK);
 end;
 /
 
@@ -167,8 +164,8 @@ before insert on klienci
 FOR EACH ROW
 DECLARE NUMEREK number;
 begin
-select id_klient_seq.nextval into NUMEREK from dual;
-:NEW.id_klient := concat(concat(:NEW.id_dane_osobowe, NUMEREK), 'KL');
+   select id_klient_seq.nextval into NUMEREK from dual;
+   :NEW.id_klient := concat(concat(:NEW.id_dane_osobowe, NUMEREK), 'KL');
 end;
 /
 
@@ -177,8 +174,8 @@ before insert on sprzedawcy
 FOR EACH ROW
 DECLARE NUMEREK number;
 begin
-select id_sprzedawca_seq.nextval into NUMEREK from dual;
-:NEW.id_sprzedawca := concat(concat(:NEW.id_dane_osobowe, NUMEREK), 'SP');
+   select id_sprzedawca_seq.nextval into NUMEREK from dual;
+   :NEW.id_sprzedawca := concat(concat(:NEW.id_dane_osobowe, NUMEREK), 'SP');
 end;
 /
 
@@ -187,8 +184,8 @@ before insert on rezyserzy
 FOR EACH ROW 
 DECLARE NUMEREK number;
 begin
-select id_rezyser_seq.nextval into NUMEREK from dual;
-:NEW.id_rezyser := concat(concat(concat(substr(:NEW.imie,1,1),substr(:NEW.nazwisko,1,1)),NUMEREK),'REZ');
+   select id_rezyser_seq.nextval into NUMEREK from dual;
+   :NEW.id_rezyser := concat(concat(concat(substr(:NEW.imie,1,1),substr(:NEW.nazwisko,1,1)),NUMEREK),'REZ');
 end;
 /
 
@@ -197,8 +194,8 @@ before insert on gatunki
 FOR EACH ROW 
 DECLARE NUMEREK number;
 begin
-select id_gatunku_seq.nextval into NUMEREK from dual;
-:NEW.id_gatunku := concat(substr(:NEW.nazwa,1,1),NUMEREK);
+   select id_gatunku_seq.nextval into NUMEREK from dual;
+   :NEW.id_gatunku := concat(substr(:NEW.nazwa,1,1),NUMEREK);
 end;
 /
 
@@ -207,8 +204,8 @@ before insert on filmy
 FOR EACH ROW 
 DECLARE NUMEREK number;
 begin 
-select id_filmu_seq.nextval into NUMEREK from dual;
-:NEW.id_filmu := concat(concat(concat(substr(:NEW.tytul,1,6),:NEW.id_gatunku),:NEW.id_rezyser), NUMEREK);
+   select id_filmu_seq.nextval into NUMEREK from dual;
+   :NEW.id_filmu := concat(concat(concat(substr(:NEW.tytul,1,6),:NEW.id_gatunku),:NEW.id_rezyser), NUMEREK);
 end;
 /
 
@@ -217,8 +214,8 @@ before insert on miejsca
 FOR EACH ROW 
 DECLARE NUMEREK number;
 begin
-select id_miejsca_seq.nextval into NUMEREK from dual;
-:NEW.id_miejsca := concat(concat(:NEW.rzad_litera, :NEW.fotel_cyfra), NUMEREK);
+   select id_miejsca_seq.nextval into NUMEREK from dual;
+   :NEW.id_miejsca := concat(concat(:NEW.rzad_litera, :NEW.fotel_cyfra), NUMEREK);
 end;
 /
 
@@ -227,8 +224,8 @@ before insert on seanse
 FOR EACH ROW 
 DECLARE NUMEREK number;
 begin
-select id_seansu_seq.nextval into NUMEREK from dual;
-:NEW.id_seansu := concat(concat(:NEW.id_filmu, NUMEREK), :NEW.data_godzina);
+   select id_seansu_seq.nextval into NUMEREK from dual;
+   :NEW.id_seansu := concat(concat(:NEW.id_filmu, NUMEREK), :NEW.data_godzina);
 end;
 /
 
@@ -237,6 +234,19 @@ before insert on bilety
 FOR EACH ROW 
 DECLARE NUMEREK number;
 begin
-select id_biletu_seq.nextval into NUMEREK from dual;
-:NEW.id_biletu := concat(concat(concat(substr(:NEW.rodzaj_biletu,1,2), :NEW.id_miejsca), NUMEREK), :NEW.id_seansu);
+   select id_biletu_seq.nextval into NUMEREK from dual;
+   :NEW.id_biletu := concat(concat(concat(substr(:NEW.rodzaj_biletu,1,2), :NEW.id_miejsca), NUMEREK), :NEW.id_seansu);
+   :NEW.data_kupna := current_timestamp;
 end;
+/
+
+--    triggery poprawiające dane
+CREATE or REPLACE trigger bilety_trigg_typ_insert
+before insert or update on bilety
+for each row 
+begin
+   if :NEW.rodzaj_biletu is NULL then
+   :NEW.rodzaj_biletu := 'normalny 18zl'; 
+   end if;
+end;
+/
