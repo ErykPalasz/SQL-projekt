@@ -20,8 +20,8 @@ ALTER TABLE dane_osobowe ADD PRIMARY KEY(id_dane_osobowe);
 
 CREATE TABLE rodzaj_biletu(
    id_rodzaj_biletu VARCHAR(10) NOT NULL,
-   rodzaj VARCHAR(10) NOT NULL,
-   cena NUMERIC(4) NOT NULL
+   rodzaj VARCHAR(10) check(rodzaj in('normalny', 'ulgowy', 'emeryt')) NOT NULL,
+   cena NUMERIC(4) check(cena in(8, 6, 4)) NOT NULL 
 );
 ALTER TABLE rodzaj_biletu ADD PRIMARY KEY(id_rodzaj_biletu);
 
@@ -101,6 +101,9 @@ alter table seanse add foreign key(id_filmu) REFERENCES filmy(id_filmu);
 alter table filmy add foreign key(id_rezyser) REFERENCES rezyserzy(id_rezyser);
 alter table filmy add foreign key(id_gatunku) REFERENCES gatunki(id_gatunku);
 
+-- sekwencje
+
+-- trigery
 
 
 
