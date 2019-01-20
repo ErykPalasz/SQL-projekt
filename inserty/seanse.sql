@@ -5,4 +5,3 @@ insert into seanse (id_filmu, data_godzina) values ('ThM76BA70REZ75', '15:00:00'
 insert into seanse (id_filmu, data_godzina) values ('BoD70BA70REZ76', '17:00:00');
 insert into seanse (id_filmu, data_godzina) values ('BeH74RP73REZ77', '19:00:00');
 insert into seanse (id_filmu, data_godzina) values ('StC71LM71REZ78', '21:00:00');
-insert into seanse (id_filmu, data_godzina) values ('HaH74LM71REZ79', '22:00:00');
