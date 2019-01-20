@@ -22,7 +22,7 @@ drop sequence id_dane_osobowe_seq;
 
 --    tabele
 CREATE TABLE dane_osobowe(
-   id_dane_osobowe VARCHAR(10) NOT NULL, 
+   id_dane_osobowe VARCHAR(20) NOT NULL, 
    imie VARCHAR(10) NOT NULL, 
    nazwisko VARCHAR(20), 
    email VARCHAR(32), 
@@ -31,56 +31,56 @@ CREATE TABLE dane_osobowe(
 ALTER TABLE dane_osobowe ADD PRIMARY KEY(id_dane_osobowe);
 
 CREATE TABLE seanse(
-   id_seansu VARCHAR(10) NOT NULL,
-   id_filmu VARCHAR(10) NOT NULL,
+   id_seansu VARCHAR(20) NOT NULL,
+   id_filmu VARCHAR(20) NOT NULL,
    data_godzina DATE NOT NULL
 );
 ALTER TABLE seanse ADD PRIMARY KEY(id_seansu);
 
 CREATE TABLE filmy(
-   id_filmu VARCHAR(10) NOT NULL,
-   id_rezyser VARCHAR(10) NOT NULL,
-   id_gatunku VARCHAR(10) NOT NULL,
-   tytul VARCHAR(20) NOT NULL,
+   id_filmu VARCHAR(20) NOT NULL,
+   id_rezyser VARCHAR(20) NOT NULL,
+   id_gatunku VARCHAR(20) NOT NULL,
+   tytul VARCHAR(50) NOT NULL,
    data_premiery DATE,
-   opis VARCHAR(250)
+   opis VARCHAR(512)
 );
 ALTER TABLE filmy ADD PRIMARY KEY(id_filmu);
 
 CREATE TABLE gatunki(
-   id_gatunku VARCHAR(10) NOT NULL,
+   id_gatunku VARCHAR(20) NOT NULL,
    nazwa VARCHAR(15)
 );
 ALTER TABLE gatunki ADD PRIMARY KEY(id_gatunku);
 
 create table klienci(
-   id_klient VARCHAR(10) NOT NULL, 
-   id_dane_osobowe VARCHAR(10)
+   id_klient VARCHAR(20) NOT NULL, 
+   id_dane_osobowe VARCHAR(20)
 );
 alter table klienci add primary key(id_klient);
 
 create table sprzedawcy(
-   id_sprzedawca VARCHAR2(10) NOT NULL, 
-   id_dane_osobowe VARCHAR2(10) NOT NULL,
+   id_sprzedawca VARCHAR2(20) NOT NULL, 
+   id_dane_osobowe VARCHAR2(20) NOT NULL,
    pesel VARCHAR(11) NOT NULL,
-   data_zatrudnienia DATE, 
+   data_zatrudnienia DATE NOT NULL, 
    data_zwolnienia DATE
 );
 alter table sprzedawcy add primary key(id_sprzedawca);
 
 create table miejsca(
-   id_miejsca VARCHAR(10) NOT NULL,
+   id_miejsca VARCHAR(20) NOT NULL,
    rzad_litera CHAR(2) NOT NULL, 
    fotel_cyfra NUMERIC(2) NOT NULL
 );
 alter table miejsca add primary key(id_miejsca);
 
 create table bilety  (
-   id_biletu VARCHAR(10) NOT NULL,
-   id_miejsca VARCHAR(10) NOT NULL,
-   id_klient VARCHAR(10) NOT NULL,
-   id_sprzedawca VARCHAR(10) NOT NULL,
-   id_seansu VARCHAR(10) NOT NULL,
+   id_biletu VARCHAR(20) NOT NULL,
+   id_miejsca VARCHAR(20) NOT NULL,
+   id_klient VARCHAR(20) NOT NULL,
+   id_sprzedawca VARCHAR(20) NOT NULL,
+   id_seansu VARCHAR(20) NOT NULL,
    rodzaj_biletu VARCHAR(15) check(rodzaj_biletu in('normalny 18zl', 'ulgowy 12zl', 'emeryt 8zl', 'dziecko 4zl', NULL)),
    data_kupna DATE NOT NULL,
    termin_waznosci DATE NOT NULL
@@ -88,7 +88,7 @@ create table bilety  (
 alter table bilety add primary key(id_biletu);
 
 create table rezyserzy(
-   id_rezyser VARCHAR2(10) NOT NULL,
+   id_rezyser VARCHAR2(20) NOT NULL,
    imie VARCHAR2(20) NOT NULL,
    nazwisko VARCHAR2(20) NOT NULL
 );
@@ -250,3 +250,4 @@ begin
    end if;
 end;
 /
+
