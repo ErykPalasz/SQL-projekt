@@ -58,7 +58,6 @@ create table klienci(
    id_dane_osobowe VARCHAR(10)
 );
 alter table klienci add primary key(id_klient);
-alter table klienci add check(select id_dane_osobowe from dane_osobowe = id_dane_osobowe);
 
 create table sprzedawcy(
    id_sprzedawca VARCHAR2(10) NOT NULL, 
