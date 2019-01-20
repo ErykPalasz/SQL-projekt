@@ -165,16 +165,20 @@ end;
 CREATE or REPLACE trigger klienci_trigg_insert
 before insert on klienci 
 FOR EACH ROW
+DECLARE NUMEREK number;
 begin
-:NEW.id_klient := concat(:NEW.id_dane_osobowe, 'KL');
+select id_klient_seq.nextval into NUMEREK from dual;
+:NEW.id_klient := concat(concat(:NEW.id_dane_osobowe, NUMEREK), 'KL');
 end;
 /
 
 CREATE or REPLACE trigger sprzedawcy_trigg_insert
 before insert on sprzedawcy 
 FOR EACH ROW
+DECLARE NUMEREK number;
 begin
-:NEW.id_sprzedawca := concat(:NEW.id_dane_osobowe, 'SP');
+select id_sprzedawca_seq.nextval into NUMEREK from dual;
+:NEW.id_sprzedawca := concat(concat(:NEW.id_dane_osobowe, NUMEREK), 'SP');
 end;
 /
 
