@@ -102,10 +102,10 @@ alter table filmy add foreign key(id_rezyser) REFERENCES rezyserzy(id_rezyser);
 alter table filmy add foreign key(id_gatunku) REFERENCES gatunki(id_gatunku);
 
 -- indeksy
-CREATE index indeks_seans_film_datagodzina on seanse(id_filmu, data_godzina);
-CREATE index indeks_imie_nazwisko on dane_osobowe(imie, nazwisko);
-CREATE index indeks_bilet_miejsce_seans_wazny on bilety(id_miejsca, id_seansu, termin_waznosci);
-CREATE index indeks_miejsce_rzad_fotel on miejsca(rzad_litera, fotel_cyfra);
+CREATE index indeks_sean_film_datagodz on seanse(id_filmu, data_godzina);
+CREATE index indeks_imie_nazw on dane_osobowe(imie, nazwisko);
+CREATE index indeks_bile_miej_sean_wazn on bilety(id_miejsca, id_seansu, termin_waznosci);
+CREATE index indeks_miej_rzad_fote on miejsca(rzad_litera, fotel_cyfra);
 
 -- sekwencje
 CREATE sequence id_dane_osobowe_seq
