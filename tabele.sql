@@ -76,14 +76,13 @@ create table miejsca(
 alter table miejsca add primary key(id_miejsca);
 
 create table bilety  (
-   id_biletu VARCHAR(20) NOT NULL,
+   id_biletu VARCHAR(50) NOT NULL,
    id_miejsca VARCHAR(20) NOT NULL,
    id_klient VARCHAR(20) NOT NULL,
    id_sprzedawca VARCHAR(20) NOT NULL,
    id_seansu VARCHAR(20) NOT NULL,
    rodzaj_biletu VARCHAR(15) check(rodzaj_biletu in('normalny 18zl', 'ulgowy 12zl', 'emeryt 8zl', 'dziecko 4zl', NULL)),
-   data_kupna DATE NOT NULL,
-   termin_waznosci DATE NOT NULL
+   data_kupna DATE NOT NULL
 );
 alter table bilety add primary key(id_biletu);
 
