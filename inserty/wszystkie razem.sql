@@ -183,13 +183,13 @@ insert into filmy (id_rezyser, id_gatunku, tytul, data_premiery, opis) values ('
 insert into filmy (id_rezyser, id_gatunku, tytul, data_premiery, opis) values ('TA72REZ', 'R73', 'Little Witches', '2017/06/14', 'nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac');
 
 -- seanse
-insert into seanse (id_filmu, data_godzina) values ('ThC72EC74REZ72', '1900/1/1 09:00:00');
-insert into seanse (id_filmu, data_godzina) values ('22H74TA72REZ73', '1900/1/1 11:00:00');
-insert into seanse (id_filmu, data_godzina) values ('TeC72TA72REZ74', '1900/1/1 13:00:00');
-insert into seanse (id_filmu, data_godzina) values ('ThM76BA70REZ75', '1900/1/1 15:00:00');
-insert into seanse (id_filmu, data_godzina) values ('BoD70BA70REZ76', '1900/1/1 17:00:00');
-insert into seanse (id_filmu, data_godzina) values ('BeH74RP73REZ77', '1900/1/1 19:00:00');
-insert into seanse (id_filmu, data_godzina) values ('StC71LM71REZ78', '1900/1/1 21:00:00');
+insert into seanse (id_filmu, godzina_seansu) values ('ThC72EC74REZ72', '09:00');
+insert into seanse (id_filmu, godzina_seansu) values ('22H74TA72REZ73', '11:00');
+insert into seanse (id_filmu, godzina_seansu) values ('TeC72TA72REZ74', '13:00');
+insert into seanse (id_filmu, godzina_seansu) values ('ThM76BA70REZ75', '15:00');
+insert into seanse (id_filmu, godzina_seansu) values ('BoD70BA70REZ76', '17:00');
+insert into seanse (id_filmu, godzina_seansu) values ('BeH74RP73REZ77', '19:00');
+insert into seanse (id_filmu, godzina_seansu) values ('StC71LM71REZ78', '21:00');
 
 -- miejsca
 insert into miejsca (rzad_litera, fotel_cyfra) values ('a', '01');

@@ -31,9 +31,9 @@ CREATE TABLE dane_osobowe(
 ALTER TABLE dane_osobowe ADD PRIMARY KEY(id_dane_osobowe);
 
 CREATE TABLE seanse(
-   id_seansu VARCHAR(20) NOT NULL,
+   id_seansu VARCHAR(30) NOT NULL,
    id_filmu VARCHAR(20) NOT NULL,
-   data_godzina DATE NOT NULL 
+   godzina_seansu VARCHAR(5) NOT NULL 
 );
 ALTER TABLE seanse ADD PRIMARY KEY(id_seansu);
 
@@ -106,7 +106,7 @@ alter table filmy add foreign key(id_rezyser) REFERENCES rezyserzy(id_rezyser);
 alter table filmy add foreign key(id_gatunku) REFERENCES gatunki(id_gatunku);
 
 --    indeksy
-CREATE index indeks_sean_film_datagodz on seanse(id_filmu, data_godzina);
+CREATE index indeks_sean_film_datagodz on seanse(id_filmu, godzina_seansu);
 CREATE index indeks_imie_nazw on dane_osobowe(imie, nazwisko);
 CREATE index indeks_bile_miej_sean_wazn on bilety(id_miejsca, id_seansu, termin_waznosci);
 CREATE index indeks_miej_rzad_fote on miejsca(rzad_litera, fotel_cyfra);
@@ -225,7 +225,7 @@ FOR EACH ROW
 DECLARE NUMEREK number;
 begin
    select id_seansu_seq.nextval into NUMEREK from dual;
-   :NEW.id_seansu := concat(concat(:NEW.id_filmu, NUMEREK), :NEW.data_godzina);
+   :NEW.id_seansu := concat(concat(:NEW.id_filmu, NUMEREK), :NEW.godzina_seansu);
 end;
 /
 
