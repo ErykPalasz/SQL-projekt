@@ -1,4 +1,4 @@
--- usuwanie tablic
+-- usuwanie
 DROP TABLE dane_osobowe CASCADE CONSTRAINTS PURGE;
 DROP TABLE seanse CASCADE CONSTRAINTS PURGE;
 DROP TABLE filmy CASCADE CONSTRAINTS PURGE;
@@ -8,6 +8,22 @@ drop table sprzedawcy CASCADE CONSTRAINTS PURGE;
 drop table bilety CASCADE CONSTRAINTS PURGE;
 drop table miejsca CASCADE CONSTRAINTS PURGE;
 drop table rezyserzy CASCADE CONSTRAINTS PURGE;
+
+drop index indeks_bile_miej_sean_wazn;
+drop index indeks_imie_nazw;
+drop index indeks_sean_film_datagodz
+drop index indeks_miej_rzad_fote;
+
+drop sequence id_filmu_seq;
+drop sequence id_seansu_seq;
+drop sequence id_biletu_seq;
+drop sequence id_klient_seq;
+drop sequence id_gatunku_seq;
+drop sequence id_miejsca_seq;
+drop sequence id_rezyser_seq;
+drop sequence id_sprzedawca_seq;
+drop sequence id_dane_osobowe_seq;
+
 
 -- tabele
 CREATE TABLE dane_osobowe(
@@ -70,7 +86,7 @@ create table bilety  (
    id_klient VARCHAR(10) NOT NULL,
    id_sprzedawca VARCHAR(10) NOT NULL,
    id_seansu VARCHAR(10) NOT NULL,
-   rodzaj_biletu VARCHAR(15) check(rodzaj in('normalny 18zl', 'ulgowy 12zl', 'emeryt 8zl', 'dziecko 4zl'))
+   rodzaj_biletu VARCHAR(15) check(rodzaj_biletu in('normalny 18zl', 'ulgowy 12zl', 'emeryt 8zl', 'dziecko 4zl')),
    data_kupna DATE,
    termin_waznosci DATE
 );
