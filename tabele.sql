@@ -26,7 +26,7 @@ CREATE TABLE dane_osobowe(
    imie VARCHAR(10) NOT NULL, 
    nazwisko VARCHAR(20), 
    email VARCHAR(32), 
-   telefon NUMERIC(9)
+   telefon VARCHAR(11)
 );
 ALTER TABLE dane_osobowe ADD PRIMARY KEY(id_dane_osobowe);
 
