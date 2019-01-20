@@ -41,7 +41,7 @@ CREATE TABLE filmy(
    id_filmu VARCHAR(20) NOT NULL,
    id_rezyser VARCHAR(20) NOT NULL,
    id_gatunku VARCHAR(20) NOT NULL,
-   tytul VARCHAR(50) NOT NULL,
+   tytul VARCHAR(100) NOT NULL,
    data_premiery DATE,
    opis VARCHAR(512)
 );
