@@ -47,7 +47,6 @@ insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Kylynn', 'Nee
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Catharine', 'Verdey', 'cverdey1@desdev.cn', '794 471 703');
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Loni', 'Parnall', 'lparnall2@opera.com', '911 174 134');
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Monica', 'Shardlow', 'mshardlow3@omniture.com', '775 485 345');
-
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Frances', 'Kelner', 'fkelner4@craigslist.org', '666 383 175');
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Marney', 'Shottin', 'mshottin5@nyu.edu', '606 562 077');
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Ignatius', 'McCarver', 'imccarver6@scribd.com', '940 479 306');
@@ -76,26 +75,26 @@ insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Gianina', 'Kn
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Berry', 'Varvell', 'bvarvellt@reverbnation.com', '201 113 966');
 
 -- sprzedawcy
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('RT70', 49607729834, '06/01/2018', '17/01/2019');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('BQ71', 17922720600, '10/08/2017', '13/09/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('MM72', 94342037614, '20/03/2017', '14/07/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('HE73', 51303781775, '19/02/2017', '01/12/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('NA74', 40830400861, '20/08/2017', '04/02/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('MD75', 42429575081, '02/12/2017', '31/07/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('EM76', 98820950917, '13/08/2017', '25/02/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('SL77', 91036023554, '08/05/2017', '15/07/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('EC78', 74642401424, '21/11/2017', '18/07/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('SB79', 13827571118, '26/07/2017', '28/06/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('RC80', 92244070129, '02/03/2017', '09/07/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('AL81', 74430686316, '12/04/2017', '09/06/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('GB82', 42228909599, '29/10/2017', '16/08/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('PR83', 98065877086, '05/07/2017', null);
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('CC84', 95251736004, '04/07/2017', '22/03/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('MW85', 62335771238, '23/11/2017', '02/05/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('FA86', 80626287471, '11/05/2017', '14/12/2018');
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('DB87', 36468526544, '17/07/2017', null);
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('YS88', 42601577561, '06/05/2017', null);
-insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('AM89', 87061543892, '01/06/2017', '01/08/2018');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('RT70', 49607729834, to_date('06/01/2018', 'DD/MM/YYYY'), to_date('17/01/2019', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('BQ71', 17922720600, to_date('10/08/2017', 'DD/MM/YYYY'), to_date('13/09/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('MM72', 94342037614, to_date('20/03/2017', 'DD/MM/YYYY'), to_date('14/07/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('HE73', 51303781775, to_date('19/02/2017', 'DD/MM/YYYY'), to_date('01/12/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('NA74', 40830400861, to_date('20/08/2017', 'DD/MM/YYYY'), to_date('04/02/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('MD75', 42429575081, to_date('02/12/2017', 'DD/MM/YYYY'), to_date('31/07/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('EM76', 98820950917, to_date('13/08/2017', 'DD/MM/YYYY'), to_date('25/02/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('SL77', 91036023554, to_date('08/05/2017', 'DD/MM/YYYY'), to_date('15/07/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('EC78', 74642401424, to_date('21/11/2017', 'DD/MM/YYYY'), to_date('18/07/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('SB79', 13827571118, to_date('26/07/2017', 'DD/MM/YYYY'), to_date('28/06/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('RC80', 92244070129, to_date('02/03/2017', 'DD/MM/YYYY'), to_date('09/07/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('AL81', 74430686316, to_date('12/04/2017', 'DD/MM/YYYY'), to_date('09/06/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('GB82', 42228909599, to_date('29/10/2017', 'DD/MM/YYYY'), to_date('16/08/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('PR83', 98065877086, to_date('05/07/2017', 'DD/MM/YYYY'), null);
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('CC84', 95251736004, to_date('04/07/2017', 'DD/MM/YYYY'), to_date('22/03/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('MW85', 62335771238, to_date('23/11/2017', 'DD/MM/YYYY'), to_date('02/05/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('FA86', 80626287471, to_date('11/05/2017', 'DD/MM/YYYY'), to_date('14/12/2018', 'DD/MM/YYYY'));
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('DB87', 36468526544, to_date('17/07/2017', 'DD/MM/YYYY'), null);
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('YS88', 42601577561, to_date('06/05/2017', 'DD/MM/YYYY'), null);
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('AM89', 87061543892, to_date('01/06/2017', 'DD/MM/YYYY'), to_date('01/08/2018', 'DD/MM/YYYY'));
 
 --filmy
 insert into filmy (id_rezyser, id_gatunku, tytul, data_premiery, opis) values ('TA72REZ', 'C71', 'Power and Terror: Noam Chomsky in Our Times', '29/04/2018', 'risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec');

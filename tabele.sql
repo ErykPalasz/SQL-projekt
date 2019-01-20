@@ -23,8 +23,8 @@ drop sequence id_dane_osobowe_seq;
 --    tabele
 CREATE TABLE dane_osobowe(
    id_dane_osobowe VARCHAR(20) NOT NULL, 
-   imie VARCHAR(10) NOT NULL, 
-   nazwisko VARCHAR(20), 
+   imie VARCHAR(20) NOT NULL, 
+   nazwisko VARCHAR(30), 
    email VARCHAR(32), 
    telefon VARCHAR(11)
 );
