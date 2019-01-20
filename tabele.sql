@@ -148,7 +148,13 @@ CREATE sequence id_rezyser_seq
 minvalue 1 maxvalue 999999999999999999999999999
 increment by 1 start with 70 cache 20 noorder nocycle;
 
--- trigery
+-- triggery
 
-
-
+--    id triggery
+CREATE or REPLACE trigger dane_osob_trigg_insert
+before insert on dane_osobowe FOR EACH ROW DECLARE
+NUMEREK number;
+begin
+   select id_dane_osobowe_seq.nextval into NUMEREK from dual;
+   :NEW.id_dane_osobowe := concat(concat(substr(:NEW.imie,1,1),substr(:NEW.nazwisko,1,1)),NUMEREK);
+end;
