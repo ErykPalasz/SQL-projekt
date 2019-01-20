@@ -1,3 +1,4 @@
+-- klienci
 insert into klienci (id_klient) values ('DP91');
 insert into klienci (id_klient) values ('KG92');
 insert into klienci (id_klient) values ('JG93');
