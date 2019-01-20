@@ -1,0 +1,1 @@
+insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Marek', 'Stypa', 'marek.stypa@mail.pl', '111111111');
