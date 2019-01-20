@@ -11,9 +11,6 @@ insert into gatunki (nazwa) values ('Crime');
 insert into gatunki (nazwa) values ('Comedy');
 insert into gatunki (nazwa) values ('Romance');
 insert into gatunki (nazwa) values ('Horror');
-insert into gatunki (nazwa) values ('Thriler');
-insert into gatunki (nazwa) values ('Musical');
-
 
 -- dane osobowe
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Rolf', 'Trudgeon', 'rtrudgeon0@reference.com', '865 860 152');
@@ -47,13 +44,24 @@ insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Fredi', 'Grau
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Tonnie', 'Sapp', 'tsapps@comsenz.com', '285 265 123');
 insert into dane_osobowe (imie, nazwisko, email, telefon) values ('Arabele', 'Crowth', 'acrowtht@dropbox.com', '500 948 072');
 
---
-
-id_gatunku
-D70,C71,C72,R73,H74,T75,M76
-
-id_dane_osobowe
-RT70,BQ71,MM72,HE73,NA74,MD75,EM76,SL77,EC78,SB79,RC80,AL81,GB82,PR83,CC84,MW85,FA86,DB87,YS88,AM89,SS90,DP91,KG92,JG93,HM94,RM95,BM96,FG97,TS98,AC99
-
-id_rezyser
-BA70REZ,LM71REZ,TA72REZ,RP73REZ,EC74REZ
+-- sprzedawcy
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (65049038764, '2/29/2016', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (27806848142, '10/20/2017', '7/16/2016');
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (73583264503, '7/7/2017', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (91846419287, '12/31/2017', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (94122712380, '9/28/2018', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (30065922717, '12/29/2017', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (34797411989, '6/15/2017', '1/21/2016');
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (76445511671, '11/9/2017', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (53390067913, '5/19/2017', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (28573293277, '8/6/2017', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (98508583910, '10/20/2017', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (76501641667, '1/5/2019', '5/25/2017');
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (64303002133, '11/29/2018', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (79253161545, '1/31/2018', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (11163757272, '1/24/2017', '8/4/2016');
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (70820392482, '12/4/2017', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (50980845024, '9/8/2018', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (59986305784, '8/8/2016', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (40924939016, '12/18/2018', null);
+insert into sprzedawcy (pesel, data_zatrudnienia, data_zwolnienia) values (38222842151, '12/28/2016', '1/2/2019');
