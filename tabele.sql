@@ -180,7 +180,7 @@ end;
 /
 
 CREATE or REPLACE trigger rezyserzy_trigg_insert
-before insert on rezyserzy 
+before insert on rezyserzy
 FOR EACH ROW 
 DECLARE NUMEREK number;
 begin
