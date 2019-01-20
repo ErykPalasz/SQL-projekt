@@ -70,8 +70,8 @@ alter table sprzedawcy add primary key(id_sprzedawca);
 
 create table miejsca(
    id_miejsca VARCHAR(20) NOT NULL,
-   rzad_litera CHAR(2) NOT NULL, 
-   fotel_cyfra NUMERIC(2) NOT NULL
+   rzad_litera VARCHAR(2) NOT NULL, 
+   fotel_cyfra VARCHAR(2) NOT NULL
 );
 alter table miejsca add primary key(id_miejsca);
 
