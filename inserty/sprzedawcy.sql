@@ -1,0 +1,21 @@
+-- sprzedawcy
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('RT70', 88931654393, '2017/09/01', null);
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('BQ71', 33816419431, '2017/06/21', '2018/10/21');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('MM72', 59375667404, '2017/09/21', null);
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('HE73', 84279823169, '2017/10/24', '2018/06/28');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('NA74', 74210686127, '2017/12/30', '2018/05/02');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('MD75', 10385738753, '2017/11/02', null);
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('EM76', 57807381607, '2017/04/20', '2018/03/10');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('SL77', 46378394318, '2017/12/01', '2018/10/19');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('EC78', 93214684573, '2017/07/06', '2018/10/31');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('SB79', 76410197023, '2017/07/11', null);
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('RC80', 14690409001, '2017/01/06', '2018/08/25');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('AL81', 34778424560, '2017/05/03', '2018/04/08');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('GB82', 44662013189, '2017/06/02', '2018/10/12');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('PR83', 28792684220, '2017/05/30', '2018/12/17');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('CC84', 48152409771, '2017/01/19', '2018/04/14');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('MW85', 92732148969, '2017/07/26', '2018/07/07');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('FA86', 69173229348, '2017/12/20', '2018/08/17');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('DB87', 95142101615, '2017/07/14', '2018/05/07');
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('YS88', 70650784376, '2017/03/21', null);
+insert into sprzedawcy (id_dane_osobowe, pesel, data_zatrudnienia, data_zwolnienia) values ('AM89', 54538188084, '2017/01/30', '2018/04/30');
