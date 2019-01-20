@@ -1,3 +1,4 @@
+-- seanse
 insert into seanse (id_filmu, data_godzina) values ('ThC72EC74REZ72', '1900/1/1 09:00:00');
 insert into seanse (id_filmu, data_godzina) values ('22H74TA72REZ73', '1900/1/1 11:00:00');
 insert into seanse (id_filmu, data_godzina) values ('TeC72TA72REZ74', '1900/1/1 13:00:00');

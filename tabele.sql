@@ -33,7 +33,7 @@ ALTER TABLE dane_osobowe ADD PRIMARY KEY(id_dane_osobowe);
 CREATE TABLE seanse(
    id_seansu VARCHAR(20) NOT NULL,
    id_filmu VARCHAR(20) NOT NULL,
-   data_godzina DATE NOT NULL
+   data_godzina DATE NOT NULL 
 );
 ALTER TABLE seanse ADD PRIMARY KEY(id_seansu);
 
