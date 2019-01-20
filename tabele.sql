@@ -225,7 +225,7 @@ FOR EACH ROW
 DECLARE NUMEREK number;
 begin
    select id_seansu_seq.nextval into NUMEREK from dual;
-   :NEW.id_seansu := concat(concat(:NEW.id_filmu, NUMEREK), :NEW.godzina_seansu);
+   :NEW.id_seansu := concat(concat(:NEW.id_filmu, NUMEREK), substr(:NEW.godzina_seansu,1,2));
 end;
 /
 
