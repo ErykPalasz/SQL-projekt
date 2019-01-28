@@ -1,1 +1,0 @@
--- minimum 2 projekcje
